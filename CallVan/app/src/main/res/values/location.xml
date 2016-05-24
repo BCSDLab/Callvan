@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="location">
+        <item>학교</item>
+        <item>야우리</item>
+        <item>천안역</item>
+        <item>병천</item>
+        <item>기타</item>
+    </string-array>
+</resources>
