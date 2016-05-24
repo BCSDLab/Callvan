@@ -19,7 +19,9 @@
         </activity>
         <!-- Main -->
         <activity android:name=".MainActivity">
-
+        </activity>
+        <!-- Login -->
+        <activity android:name=".LoginActivity">
         </activity>
     </application>
 
