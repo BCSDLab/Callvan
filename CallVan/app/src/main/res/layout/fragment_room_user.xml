@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Spinner
+        android:id="@+id/sp_start"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center">
+
+    </Spinner>
+    <Spinner
+        android:id="@+id/sp_end"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center">
+
+    </Spinner>
+    <EditText
+        android:hint="최소 모임 시간 : 무제한(default)"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center" />
+    <EditText
+        android:hint="최소인원"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center" />
+
+
+</LinearLayout>
