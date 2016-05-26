@@ -17,19 +17,39 @@
         android:gravity="center">
 
     </Spinner>
-
-    <TimePicker
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/timePicker"
-        android:layout_gravity="center_horizontal" />
+        android:gravity="center|center_vertical">
+        <TextView
+            android:textSize="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="제한 시간"/>
+        <TimePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/timePicker"
+            android:layout_gravity="center_horizontal"
+            android:timePickerMode="spinner" />
+    </LinearLayout>
+
 
     <EditText
+        android:id="@+id/et_min_Mem"
         android:hint="최소인원"
         android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="center" />
+
+    <Button
+        android:id="@+id/btn_create"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text = "완료"
+        android:textSize = "20dp"/>
 
 
 </LinearLayout>
