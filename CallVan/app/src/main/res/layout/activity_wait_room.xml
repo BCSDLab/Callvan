@@ -16,6 +16,7 @@
             android:layout_marginLeft="150dp" />
     </LinearLayout>
     <TextView
+        android:id="@+id/room_start"
         android:text="출발 장소"
         android:textSize="20dp"
         android:layout_width="300dp"
@@ -24,6 +25,7 @@
         android:backgroundTint="#8d7ea1"
         android:layout_gravity="center" />
     <TextView
+        android:id="@+id/room_end"
         android:text="도착 장소"
         android:textSize="20dp"
         android:layout_width="match_parent"

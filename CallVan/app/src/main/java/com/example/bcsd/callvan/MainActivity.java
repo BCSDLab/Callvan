@@ -1,16 +1,20 @@
 package com.example.bcsd.callvan;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity{
+    Button btn_register;
     private ArrayList<RoomData> listRoomArray = new ArrayList<RoomData>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,21 @@ public class MainActivity extends AppCompatActivity {
                 this, R.array.location, android.R.layout.simple_spinner_item);
         arrive_sp.setAdapter(arrive_ad);
 
-
+        btn_register = (Button)findViewById(R.id.makeRoom_bt);
+        btn_register.setOnClickListener(mClickListener);
     }
+
+    View.OnClickListener mClickListener = new View.OnClickListener(){
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.makeRoom_bt:
+                    Intent intent =  new Intent(MainActivity.this, RoomUserActivity.class);
+                    startActivity(intent);
+                    break;
+            }
+
+        }
+    };
+
 }

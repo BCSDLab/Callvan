@@ -23,6 +23,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
         regist_tv = (TextView)findViewById(R.id.regist_tv);
         login_tv.setOnClickListener(this);
         regist_tv.setOnClickListener(this);
+
     }
 
     @Override

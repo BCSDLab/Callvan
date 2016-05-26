@@ -28,6 +28,8 @@
         <!-- Register -->
         <activity android:name=".RegisterActivity">
         </activity>
+        <!--New Room-->
+        <activity android:name=".RoomUserActivity"/>
     </application>
 
 </manifest>

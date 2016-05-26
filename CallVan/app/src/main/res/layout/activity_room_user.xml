@@ -17,12 +17,13 @@
         android:gravity="center">
 
     </Spinner>
-    <EditText
-        android:hint="최소 모임 시간 : 무제한(default)"
-        android:textSize="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center" />
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timePicker"
+        android:layout_gravity="center_horizontal" />
+
     <EditText
         android:hint="최소인원"
         android:textSize="20dp"
