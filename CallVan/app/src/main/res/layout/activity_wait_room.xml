@@ -2,19 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
             android:text="back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
             android:text="READY"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp" />
-    </LinearLayout>
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
     <TextView
         android:id="@+id/room_start"
         android:text="출발 장소"
@@ -32,18 +35,21 @@
         android:layout_height="80dp"
         android:gravity="center" />
     <TextView
+        android:id="@+id/room_time"
         android:text="시간"
         android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:gravity="center" />
     <TextView
+        android:id="@+id/room_mem"
         android:text="3명 / 5명"
         android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:gravity="center" />
     <TextView
+        android:id="@+id/room_cost"
         android:text="15000원"
         android:textSize="20dp"
         android:layout_width="match_parent"

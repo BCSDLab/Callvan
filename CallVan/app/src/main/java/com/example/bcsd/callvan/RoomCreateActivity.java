@@ -1,6 +1,7 @@
 package com.example.bcsd.callvan;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,17 +10,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by kutemsys on 2016-05-25.
  */
-public class RoomUserActivity extends Activity {
-    private static final String TAG = "RoomUserActivity";
+public class RoomCreateActivity extends Activity {
+    private static final String TAG = "RoomCreateActivity";
 
     ArrayList<String> listStart, listEnd;
     RoomData newRoom;
@@ -34,7 +35,7 @@ public class RoomUserActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_room_user);
+        setContentView(R.layout.activity_room_create);
 
         //출발장소 list
         listStart = new ArrayList<String>();
@@ -66,10 +67,11 @@ public class RoomUserActivity extends Activity {
         spEnd.setSelection(0);
 
         tp = (TimePicker)findViewById(R.id.timePicker);
+        setCurrentTimeOnView();
         tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener(){
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-                time = String.valueOf(hourOfDay) + String.valueOf(minute);
+                time =  new String().concat(pad(hourOfDay)).concat(":").concat(pad(minute));
             }
         });
 
@@ -80,21 +82,49 @@ public class RoomUserActivity extends Activity {
 
     }
 
+    private void setCurrentTimeOnView() {
+        final Calendar c = Calendar.getInstance();
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        int minute = c.get(Calendar.MINUTE);
+
+        // set current time into textview
+        time = new String().concat(pad(hour)).concat(":").concat(pad(minute));
+
+        // set current time into timepicker
+        tp.setCurrentHour(hour);
+        tp.setCurrentMinute(minute);
+
+    }
+
+    private static String pad(int c) {
+        if (c >= 10)
+            return String.valueOf(c);
+        else
+            return "0" + String.valueOf(c);
+    }
+
     View.OnClickListener mClickListener = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.btn_create :
-                    if(minNum != 0)
-                        minNum = Integer.valueOf(etMin.getText().toString());
 
                     if(start.compareTo("출발 장소") == 0 && end.compareTo("도착 장소") == 0) {
-                        Toast.makeText(getApplicationContext(),"장소를 선택하세요",Toast.LENGTH_LONG).show();
-                    }else if( minNum <= 1) {
-                        Toast.makeText(getApplicationContext(),"1명 이상을 선택하세요",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"장소를 선택하세요",Toast.LENGTH_SHORT).show();
+                    }else if( etMin.length() == 0) {
+                        Toast.makeText(getApplicationContext(), "최소 인원을 입력하세요", Toast.LENGTH_SHORT).show();
                     }else{
-                        newRoom = new RoomData(start, end, time, minNum, 1);
-                        System.out.print(newRoom);
+                        minNum = Integer.parseInt(etMin.getText().toString());
+                        if( minNum <= 1 )
+                            Toast.makeText(getApplicationContext(), "1명 이상을 선택해 주세요", Toast.LENGTH_SHORT).show();
+                        else {
+                            newRoom = new RoomData(start, end, time, minNum, 1);
+                            newRoom.print();
+
+                            Intent intent =  new Intent(RoomCreateActivity.this, MainActivity.class);
+                            startActivity(intent);
+
+                        }
                     }
                     break;
 

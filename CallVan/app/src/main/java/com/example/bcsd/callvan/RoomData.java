@@ -1,5 +1,7 @@
 package com.example.bcsd.callvan;
 
+import android.util.Log;
+
 /**
  * Created by EUNBEE on 2016-05-24.
  */
@@ -39,4 +41,7 @@ public class RoomData {
         return presentMember;
     }
 
+    public void print(){
+        Log.i( "RoomData : " , startLocation + " " + arriveLocation + ", " + startTime + ", "  +minMemer );
+    }
 }

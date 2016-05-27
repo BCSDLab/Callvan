@@ -33,6 +33,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                 Intent log_intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(log_intent);
                 finish();
+
             case R.id.regist_tv :
                 Intent res_intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(res_intent);

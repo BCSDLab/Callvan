@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ public class RoomAdapter extends ArrayAdapter<RoomData>{
     private Context context;
     private int layoutResourceId;
     private ArrayList<RoomData> roomData;
+    Object vo;
 
     public RoomAdapter(Context context, int layoutResourceId, ArrayList<RoomData> roomData) {
         super(context, layoutResourceId, roomData);
@@ -25,6 +27,7 @@ public class RoomAdapter extends ArrayAdapter<RoomData>{
         this.layoutResourceId = layoutResourceId;
         this.roomData = roomData;
     }
+
 
     //list View
     @Override
@@ -54,4 +57,13 @@ public class RoomAdapter extends ArrayAdapter<RoomData>{
 
         return row;
     }
+
+    AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            vo = (Object)parent.getAdapter().getItem(position);
+        }
+    };
+
+
 }

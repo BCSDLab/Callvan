@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -30,6 +31,15 @@ public class MainActivity extends AppCompatActivity{
         ListView listView = (ListView)findViewById(R.id.callvanRoom_lv);
         RoomAdapter roomAdapter = new RoomAdapter(this, R.layout.listview_lin, listRoomArray);
         listView.setAdapter(roomAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+                // get item
+
+                // TODO : use item data.
+            }
+        }) ;
+
         //Spinner
         final Spinner start_sp = (Spinner)findViewById(R.id.start_sp);
         final Spinner arrive_sp = (Spinner)findViewById(R.id.arrive_sp);
@@ -51,7 +61,7 @@ public class MainActivity extends AppCompatActivity{
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.makeRoom_bt:
-                    Intent intent =  new Intent(MainActivity.this, RoomUserActivity.class);
+                    Intent intent =  new Intent(MainActivity.this, RoomCreateActivity.class);
                     startActivity(intent);
                     break;
             }
