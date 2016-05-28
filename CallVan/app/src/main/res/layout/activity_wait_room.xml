@@ -6,15 +6,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+            android:id="@+id/btn_waitBack"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:text="back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
+        <!---join user ready button-->
         <Button
+            android:id="@+id/btn_ready"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
+            android:visibility="invisible"
             android:text="READY"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <!---join user ready cancel button-->
+        <Button
+            android:id="@+id/btn_ready_cancel"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:visibility="invisible"
+            android:text="CANCEL"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <!---create user start button-->
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:visibility="visible"
+            android:text="START"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_calls"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:visibility="invisible"
+            android:text="CALL"
             android:layout_width="100dp"
             android:layout_height="wrap_content" />
     </RelativeLayout>

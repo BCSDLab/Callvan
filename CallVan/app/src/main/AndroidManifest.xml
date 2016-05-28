@@ -22,14 +22,23 @@
         <!-- Main -->
         <activity android:name=".MainActivity">
         </activity>
+
         <!-- Login -->
         <activity android:name=".LoginActivity">
         </activity>
+
         <!-- Register -->
         <activity android:name=".RegisterActivity">
         </activity>
+
         <!--New Room-->
-        <activity android:name=".RoomCreateActivity"/>
+        <activity android:name=".CreateRoomActivity"/>
+
+        <!--Wait Room-->
+        <activity android:name=".WaitRoomActivity"/>
+
+        <!--Gathering Room-->
+        <activity android:name=".GatheringActivity"/>
     </application>
 
 </manifest>

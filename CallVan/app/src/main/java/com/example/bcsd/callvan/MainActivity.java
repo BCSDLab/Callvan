@@ -13,7 +13,7 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
-    Button btn_register;
+    Button btnWait, btnMake;
     private ArrayList<RoomData> listRoomArray = new ArrayList<RoomData>();
 
     @Override
@@ -52,8 +52,12 @@ public class MainActivity extends AppCompatActivity{
                 this, R.array.location, android.R.layout.simple_spinner_item);
         arrive_sp.setAdapter(arrive_ad);
 
-        btn_register = (Button)findViewById(R.id.makeRoom_bt);
-        btn_register.setOnClickListener(mClickListener);
+        btnMake = (Button)findViewById(R.id.makeRoom_bt);
+        btnMake.setOnClickListener(mClickListener);
+
+        //임시로 버튼 생성 - 리스트 뷰 리스너 구현시 삭제
+        btnWait = (Button)findViewById(R.id.btn_wait);
+        btnWait.setOnClickListener(mClickListener);
     }
 
     View.OnClickListener mClickListener = new View.OnClickListener(){
@@ -61,7 +65,11 @@ public class MainActivity extends AppCompatActivity{
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.makeRoom_bt:
-                    Intent intent =  new Intent(MainActivity.this, RoomCreateActivity.class);
+                    Intent intent =  new Intent(MainActivity.this, CreateRoomActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.btn_wait:
+                    intent =  new Intent(MainActivity.this, WaitRoomActivity.class);
                     startActivity(intent);
                     break;
             }

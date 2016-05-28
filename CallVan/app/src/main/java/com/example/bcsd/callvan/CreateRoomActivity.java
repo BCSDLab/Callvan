@@ -19,23 +19,25 @@ import java.util.Calendar;
 /**
  * Created by kutemsys on 2016-05-25.
  */
-public class RoomCreateActivity extends Activity {
-    private static final String TAG = "RoomCreateActivity";
+public class CreateRoomActivity extends Activity {
+    private static final String TAG = "CreateRoomActivity";
 
-    ArrayList<String> listStart, listEnd;
-    RoomData newRoom;
-    String time, start, end;
-    int minNum = 0;
-    TimePicker tp;
-    EditText etMin;
-    Spinner spStart, spEnd;
-    Button btnCreate;
+    private ArrayList<String> listStart, listEnd;
+    private RoomData newRoom;
+    private String time, start, end, createId;
+    private int minNum = 0;
+    private TimePicker tp;
+    private EditText etMin;
+    private Spinner spStart, spEnd;
+    private Button btnCreate;
 
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_create);
+
+        createId = "phl2898";
 
         //출발장소 list
         listStart = new ArrayList<String>();
@@ -118,10 +120,10 @@ public class RoomCreateActivity extends Activity {
                         if( minNum <= 1 )
                             Toast.makeText(getApplicationContext(), "1명 이상을 선택해 주세요", Toast.LENGTH_SHORT).show();
                         else {
-                            newRoom = new RoomData(start, end, time, minNum, 1);
+                            newRoom = new RoomData(start, end, time, minNum, 1, createId);
                             newRoom.print();
 
-                            Intent intent =  new Intent(RoomCreateActivity.this, MainActivity.class);
+                            Intent intent =  new Intent(CreateRoomActivity.this, MainActivity.class);
                             startActivity(intent);
 
                         }
