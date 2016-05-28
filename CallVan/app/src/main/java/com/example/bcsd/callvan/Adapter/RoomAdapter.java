@@ -1,4 +1,4 @@
-package com.example.bcsd.callvan;
+package com.example.bcsd.callvan.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,11 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.bcsd.callvan.R;
+import com.example.bcsd.callvan.Data.RoomData;
+
 import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Created by EUNBEE on 2016-05-24.
+ * RoomData Adapter
  */
 public class RoomAdapter extends ArrayAdapter<RoomData>{
     private Context context;

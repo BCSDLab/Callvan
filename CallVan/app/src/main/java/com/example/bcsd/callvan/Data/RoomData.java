@@ -1,7 +1,7 @@
-package com.example.bcsd.callvan;
+package com.example.bcsd.callvan.Data;
 
 /**
- * Created by EUNBEE on 2016-05-24.
+ * Information of Room
  */
 public class RoomData {
     private String startLocation;
@@ -10,7 +10,7 @@ public class RoomData {
     private int minMemer;
     private int presentMember;
 
-    RoomData(String startLocation, String arriveLocation, String startTime,
+    public RoomData(String startLocation, String arriveLocation, String startTime,
              int minMemer, int presentMember){
         this.startLocation = startLocation;
         this.arriveLocation = arriveLocation;

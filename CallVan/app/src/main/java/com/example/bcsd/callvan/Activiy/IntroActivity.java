@@ -1,4 +1,4 @@
-package com.example.bcsd.callvan;
+package com.example.bcsd.callvan.Activiy;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 
+import com.example.bcsd.callvan.R;
+
 /**
- * Created by EUNBEE on 2016-05-24.
+ * Intro
  */
 public class IntroActivity extends Activity{
     Handler handler;
