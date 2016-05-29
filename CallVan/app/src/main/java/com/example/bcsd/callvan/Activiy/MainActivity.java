@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.example.bcsd.callvan.Dao;
 import com.example.bcsd.callvan.R;
 import com.example.bcsd.callvan.Adapter.RoomAdapter;
 import com.example.bcsd.callvan.Data.RoomData;
@@ -24,14 +25,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_lin);
 
+        /*
         RoomData data1 = new RoomData("학교", "야우리", "6시", 3, 2);
         listRoomArray.add(data1);
         RoomData data2 = new RoomData("학교", "병천", "2시", 2, 1);
         listRoomArray.add(data2);
         RoomData data3 = new RoomData("천안역", "학교", "7시", 5, 3);
-        listRoomArray.add(data3);
+        listRoomArray.add(data3);*/
 
         listView = (ListView)findViewById(R.id.callvanRoom_lv);
+        //DB에 JSONData 저장
+        Dao dao = new Dao( getApplicationContext() );
+
+        String testJsonData = dao.getJsonData();
+        dao.insertJsonData( testJsonData );
+
+        listRoomArray = dao.getRoomDataList();
+
+        RoomAdapter roomAdapter = new RoomAdapter(this, R.layout.listview_lin, listRoomArray);
+        listView.setAdapter(roomAdapter);
+
         makeSpinner();
 
     }

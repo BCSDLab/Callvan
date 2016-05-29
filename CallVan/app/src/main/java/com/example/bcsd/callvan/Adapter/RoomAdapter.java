@@ -41,13 +41,14 @@ public class RoomAdapter extends ArrayAdapter<RoomData>{
         }
 
         //row layout 설정
+        TextView roomNum_tv = (TextView) row.findViewById(R.id.roomNum_tv);
         TextView start_tv = (TextView) row.findViewById(R.id.start_tv);
         TextView arrive_tv = (TextView) row.findViewById(R.id.arrive_tv);
         TextView premembers_tv = (TextView) row.findViewById(R.id.premembers_tv);
         TextView minmembers_tv = (TextView) row.findViewById(R.id.minmembers_tv);
         TextView time_tv = (TextView) row.findViewById(R.id.time_tv);
 
-
+        roomNum_tv.setText(Integer.toString(roomData.get(position).getRoomNum()));
         start_tv.setText(roomData.get(position).getStartLocation());
         arrive_tv.setText(roomData.get(position).getArriveLocation());
         premembers_tv.setText(Integer.toString(roomData.get(position).getPresentMember()));
