@@ -1,4 +1,4 @@
-package com.example.bcsd.callvan;
+package com.example.bcsd.callvan.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,11 +9,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.bcsd.callvan.R;
+import com.example.bcsd.callvan.Data.RoomData;
+
 import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Created by EUNBEE on 2016-05-24.
+ * RoomData Adapter
  */
 public class RoomAdapter extends ArrayAdapter<RoomData>{
     private Context context;
@@ -42,13 +44,14 @@ public class RoomAdapter extends ArrayAdapter<RoomData>{
         }
 
         //row layout 설정
+        TextView roomNum_tv = (TextView) row.findViewById(R.id.roomNum_tv);
         TextView start_tv = (TextView) row.findViewById(R.id.start_tv);
         TextView arrive_tv = (TextView) row.findViewById(R.id.arrive_tv);
         TextView premembers_tv = (TextView) row.findViewById(R.id.premembers_tv);
         TextView minmembers_tv = (TextView) row.findViewById(R.id.minmembers_tv);
         TextView time_tv = (TextView) row.findViewById(R.id.time_tv);
 
-
+        roomNum_tv.setText(Integer.toString(roomData.get(position).getRoomNum()));
         start_tv.setText(roomData.get(position).getStartLocation());
         arrive_tv.setText(roomData.get(position).getArriveLocation());
         premembers_tv.setText(Integer.toString(roomData.get(position).getPresentMember()));

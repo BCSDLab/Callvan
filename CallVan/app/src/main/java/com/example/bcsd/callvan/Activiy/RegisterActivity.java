@@ -1,4 +1,4 @@
-package com.example.bcsd.callvan;
+package com.example.bcsd.callvan.Activiy;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,12 +7,16 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.example.bcsd.callvan.R;
+
 /**
  * Created by EUNBEE on 2016-05-25.
  */
 public class RegisterActivity extends Activity{
 
     WebView webView;
+    //Proxy proxy;
+    String jsonData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +29,9 @@ public class RegisterActivity extends Activity{
         set.setBuiltInZoomControls(true);
         webView.loadUrl("http://a.hanpyo.com:3000/#/register");
         webView.setWebViewClient(new WebViewClientClass());
+
+        //proxy = new Proxy();
+        //jsonData = proxy.getJSON();
     }
 
     @Override

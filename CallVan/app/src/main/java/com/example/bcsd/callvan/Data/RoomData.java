@@ -1,4 +1,4 @@
-package com.example.bcsd.callvan;
+package com.example.bcsd.callvan.Data;
 
 import android.util.Log;
 
@@ -8,9 +8,10 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 /**
- * Created by EUNBEE on 2016-05-24.
+ * Information of Room
  */
 public class RoomData {
+    private int roomNum;
     private String startLocation;
     private String arriveLocation;
     private String startTime;
@@ -19,8 +20,14 @@ public class RoomData {
     private String createId;
     private LinkedHashMap<String, Boolean> joinList;
 
+<<<<<<< HEAD:CallVan/app/src/main/java/com/example/bcsd/callvan/RoomData.java
     RoomData(String startLocation, String arriveLocation, String startTime,
              int minMemer, int presentMember, String createId){
+=======
+    public RoomData(int roomNum, String startLocation, String arriveLocation, String startTime,
+             int minMemer, int presentMember){
+        this.roomNum = roomNum;
+>>>>>>> frontActivity:CallVan/app/src/main/java/com/example/bcsd/callvan/Data/RoomData.java
         this.startLocation = startLocation;
         this.arriveLocation = arriveLocation;
         this.startTime = startTime;
@@ -31,6 +38,10 @@ public class RoomData {
         this.joinList.put(createId,true);
     }
 
+<<<<<<< HEAD:CallVan/app/src/main/java/com/example/bcsd/callvan/RoomData.java
+=======
+    public int getRoomNum(){return  roomNum;}
+>>>>>>> frontActivity:CallVan/app/src/main/java/com/example/bcsd/callvan/Data/RoomData.java
 
     public String getStartLocation(){
         return startLocation;
