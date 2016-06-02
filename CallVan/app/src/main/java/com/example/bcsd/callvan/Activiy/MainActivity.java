@@ -15,19 +15,15 @@ import com.example.bcsd.callvan.R;
 import com.example.bcsd.callvan.Adapter.RoomAdapter;
 import com.example.bcsd.callvan.Data.RoomData;
 
-<<<<<<< HEAD:CallVan/app/src/main/java/com/example/bcsd/callvan/MainActivity.java
-public class MainActivity extends AppCompatActivity{
-    Button btnWait, btnMake;
-=======
 import java.util.ArrayList;
+
 /**
  * Main
  * CallVan Room List
  */
 public class MainActivity extends AppCompatActivity {
-
+    Button btnWait, btnMake;
     private ListView listView;
->>>>>>> frontActivity:CallVan/app/src/main/java/com/example/bcsd/callvan/Activiy/MainActivity.java
     private ArrayList<RoomData> listRoomArray = new ArrayList<RoomData>();
 
     @Override
@@ -82,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter arrive_ad = ArrayAdapter.createFromResource(
                 this, R.array.location, android.R.layout.simple_spinner_item);
         arrive_sp.setAdapter(arrive_ad);
-<<<<<<< HEAD:CallVan/app/src/main/java/com/example/bcsd/callvan/MainActivity.java
 
         btnMake = (Button)findViewById(R.id.makeRoom_bt);
         btnMake.setOnClickListener(mClickListener);
@@ -90,8 +85,6 @@ public class MainActivity extends AppCompatActivity {
         //임시로 버튼 생성 - 리스트 뷰 리스너 구현시 삭제
         btnWait = (Button)findViewById(R.id.btn_wait);
         btnWait.setOnClickListener(mClickListener);
-=======
->>>>>>> frontActivity:CallVan/app/src/main/java/com/example/bcsd/callvan/Activiy/MainActivity.java
     }
 
     View.OnClickListener mClickListener = new View.OnClickListener(){
@@ -99,7 +92,9 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.makeRoom_bt:
+                    String createid = "callvantest";
                     Intent intent =  new Intent(MainActivity.this, CreateRoomActivity.class);
+                    intent.putExtra("createId", createid);
                     startActivity(intent);
                     break;
                 case R.id.btn_wait:

@@ -1,4 +1,4 @@
-package com.example.bcsd.callvan;
+package com.example.bcsd.callvan.Activiy;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.example.bcsd.callvan.Data.RoomData;
+import com.example.bcsd.callvan.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,7 +40,8 @@ public class CreateRoomActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_create);
 
-        createId = "phl2898";
+        Intent intent = getIntent();
+        createId = (String)intent.getSerializableExtra("createId");
 
         //출발장소 list
         listStart = new ArrayList<String>();

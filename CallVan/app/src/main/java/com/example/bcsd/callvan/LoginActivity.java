@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.bcsd.callvan.Activiy.MainActivity;
+import com.example.bcsd.callvan.Activiy.RegisterActivity;
+
 /**
  * Created by EUNBEE on 2016-05-24.
  */

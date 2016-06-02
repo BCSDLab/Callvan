@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 
-import com.example.bcsd.callvan.R;
+import com.example.bcsd.callvan.*;
 
 /**
  * Intro
@@ -26,7 +26,7 @@ public class IntroActivity extends Activity{
 
         @Override
         public void run() {
-            Intent intent = new Intent(IntroActivity.this, MainActivity.class); //intro -> main ==> not login
+            Intent intent = new Intent(IntroActivity.this, LoginActivity.class); //intro -> main ==> not login
             startActivity(intent);
             finish();
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

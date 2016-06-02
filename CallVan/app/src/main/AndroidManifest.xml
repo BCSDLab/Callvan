@@ -24,32 +24,26 @@
             </intent-filter>
         </activity>
         <!-- Main -->
-<<<<<<< HEAD
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activiy.MainActivity">
         </activity>
 
         <!-- Login -->
-        <activity android:name=".LoginActivity">
+        <activity android:name=".Activiy.LoginActivity">
         </activity>
 
         <!-- Register -->
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".Activiy.RegisterActivity">
         </activity>
 
         <!--New Room-->
-        <activity android:name=".CreateRoomActivity"/>
+        <activity android:name=".Activiy.CreateRoomActivity"/>
 
         <!--Wait Room-->
-        <activity android:name=".WaitRoomActivity"/>
+        <activity android:name=".Activiy.WaitRoomActivity"/>
 
         <!--Gathering Room-->
-        <activity android:name=".GatheringActivity"/>
-=======
-        <activity android:name=".Activiy.MainActivity" />
-        <!-- Login -->
-        <activity android:name=".Activiy.LoginActivity" />
-        <!-- Register -->
-        <activity android:name=".Activiy.RegisterActivity" />
+        <activity android:name=".Activiy.GatheringActivity"/>
+
         <!--
         <activity
             android:name=".Activiy.ProxyTestActivity"
@@ -60,7 +54,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> -->
->>>>>>> frontActivity
+
     </application>
 
 </manifest>

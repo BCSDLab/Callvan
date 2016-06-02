@@ -1,12 +1,18 @@
-package com.example.bcsd.callvan;
+package com.example.bcsd.callvan.Activiy;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.bcsd.callvan.Data.RoomData;
+import com.example.bcsd.callvan.R;
 
 /**
  * Created by HYERIM on 2016-05-27.
@@ -14,7 +20,7 @@ import android.widget.Toast;
 public class WaitRoomActivity  extends Activity {
     private static final String TAG = "WaitRoomActivity";
 
-    private Button btnReady, btnReadyCancel, btnStart, btnCalls;
+    private Button btnReady, btnReadyCancel, btnStart, btnCalls, btnBack;
     private TextView start, end, time, mem, cost;
     private int costMem;
     private boolean makeUser = true;
@@ -40,6 +46,9 @@ public class WaitRoomActivity  extends Activity {
 
         btnCalls = (Button)findViewById(R.id.btn_calls);
         btnCalls.setOnClickListener(mClickListener);
+
+        btnBack = (Button)findViewById(R.id.btn_waitBack);
+        btnBack.setOnClickListener(mClickListener);
 
         //Intent intent = getIntent();
         //id = (String)intent.getSerializableExtra("id");
@@ -76,15 +85,22 @@ public class WaitRoomActivity  extends Activity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
+                case R.id.btn_waitBack:
+                    data.removeJoinList(joinId);
+                    //푸시알림 날리기
+                    //메인으로 이동하기
+                    Intent intent =  new Intent(WaitRoomActivity.this, MainActivity.class);
+                    startActivity(intent);
                 case R.id.btn_start:
                     btnStart.setVisibility(View.INVISIBLE);
                     btnCalls.setVisibility(View.VISIBLE);
                     break;
 
                 case R.id.btn_calls:
+                    alertCall();
                     Toast.makeText(getApplicationContext(), "콜밴전화", Toast.LENGTH_SHORT).show();
                     break;
-
+/*
                 case R.id.btn_ready:
                     data.setJoinList(joinId);
                     btnReady.setVisibility(View.INVISIBLE);
@@ -96,9 +112,46 @@ public class WaitRoomActivity  extends Activity {
                     btnReady.setVisibility(View.VISIBLE);
                     btnReadyCancel.setVisibility(View.INVISIBLE);
                     break;
+                    */
             }
 
         }
     };
+
+    public void alertCall(){
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(WaitRoomActivity.this);
+        alertBuilder.setTitle("콜밴을 선택하세요.");
+
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                WaitRoomActivity.this,
+                android.R.layout.select_dialog_singlechoice);
+        adapter.add("병천콜밴");
+        adapter.add("가나콜밴");
+        adapter.add("한기콜밴");
+
+        alertBuilder.setAdapter(adapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                String strName = adapter.getItem(id);
+                AlertDialog.Builder innBuilder = new AlertDialog.Builder(
+                        WaitRoomActivity.this);
+                innBuilder.setMessage(strName);
+                innBuilder.setTitle("당신이 선택한 것은 ");
+                innBuilder
+                        .setPositiveButton(
+                                "확인",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(
+                                            DialogInterface dialog,
+                                            int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                innBuilder.show();
+            }
+        });
+        alertBuilder.show();
+    }
+
 
 }

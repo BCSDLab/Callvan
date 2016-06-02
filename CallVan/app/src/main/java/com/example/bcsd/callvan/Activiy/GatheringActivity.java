@@ -1,9 +1,11 @@
-package com.example.bcsd.callvan;
+package com.example.bcsd.callvan.Activiy;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.bcsd.callvan.R;
 
 /**
  * Created by HYERIM on 2016-05-27.
