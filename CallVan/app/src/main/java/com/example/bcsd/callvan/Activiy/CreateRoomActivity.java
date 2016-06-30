@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
@@ -27,12 +28,14 @@ public class CreateRoomActivity extends Activity {
 
     private ArrayList<String> listStart, listEnd;
     private RoomData newRoom;
-    private String time, start, end, createId;
+    private String date, time, start, end, createId;
     private int minNum = 0;
     private TimePicker tp;
+    private DatePicker dp;
     private EditText etMin;
     private Spinner spStart, spEnd;
     private Button btnCreate;
+
 
     /** Called when the activity is first created. */
     @Override
@@ -72,7 +75,16 @@ public class CreateRoomActivity extends Activity {
         spEnd.setOnItemSelectedListener(mOnItemSelectedListener);
         spEnd.setSelection(0);
 
+        dp = (DatePicker)findViewById(R.id.datePicker);
         tp = (TimePicker)findViewById(R.id.timePicker);
+        dp.init(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(),
+                new DatePicker.OnDateChangedListener() {
+                    @Override
+                    public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        date = new String().concat(pad(year)).concat("-").concat(pad(monthOfYear)).concat("-").concat(pad(dayOfMonth));
+                    }
+                });
+
         setCurrentTimeOnView();
         tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener(){
             @Override
@@ -80,6 +92,7 @@ public class CreateRoomActivity extends Activity {
                 time =  new String().concat(pad(hourOfDay)).concat(":").concat(pad(minute));
             }
         });
+
 
         btnCreate = (Button)findViewById(R.id.btn_create);
         btnCreate.setOnClickListener(mClickListener);
@@ -89,17 +102,17 @@ public class CreateRoomActivity extends Activity {
     }
 
     private void setCurrentTimeOnView() {
-        final Calendar c = Calendar.getInstance();
+        Calendar c = Calendar.getInstance();
+
         int hour = c.get(Calendar.HOUR_OF_DAY);
         int minute = c.get(Calendar.MINUTE);
 
         // set current time into textview
         time = new String().concat(pad(hour)).concat(":").concat(pad(minute));
 
-        // set current time into timepicker
-        tp.setCurrentHour(hour);
-        tp.setCurrentMinute(minute);
-
+        dp.setMinDate(c.getTimeInMillis());
+        c.add(Calendar.DAY_OF_MONTH,14);
+        dp.setMaxDate(c.getTimeInMillis());
     }
 
     private static String pad(int c) {
@@ -124,7 +137,7 @@ public class CreateRoomActivity extends Activity {
                         if( minNum <= 1 )
                             Toast.makeText(getApplicationContext(), "1명 이상을 선택해 주세요", Toast.LENGTH_SHORT).show();
                         else {
-                            newRoom = new RoomData(start, end, time, minNum, 1, createId);
+                            newRoom = new RoomData(start, end, date + " "+ time, minNum, 1, createId);
                             newRoom.print();
 
                             Intent intent =  new Intent(CreateRoomActivity.this, MainActivity.class);
@@ -133,9 +146,7 @@ public class CreateRoomActivity extends Activity {
                         }
                     }
                     break;
-
             }
-
         }
     };
 

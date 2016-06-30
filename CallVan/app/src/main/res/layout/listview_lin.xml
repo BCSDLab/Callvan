@@ -2,117 +2,101 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-
-    <TextView
-        android:layout_weight="0.1"
-        android:id="@+id/roomNum_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"/>
 
     <LinearLayout
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></LinearLayout>
-
-        <TextView
-            android:id="@+id/start_tv"
-            android:layout_weight="1"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="출발지"/>
+            android:gravity="center_vertical|center_horizontal" >
+
+            <TextView
+                android:id="@+id/start_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="출발지" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></LinearLayout>
+            android:layout_height="wrap_content" />
 
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></LinearLayout>
-
-    <LinearLayout
-        android:layout_weight="2"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
         <LinearLayout
-            android:id="@+id/premembers_lin"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="현재인원:"/>
-            <TextView
-                android:id="@+id/premembers_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0명"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/minmembers_lin"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="최소인원:"/>
-            <TextView
-                android:id="@+id/minmembers_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4명"/>
-        </LinearLayout>
-        <TextView
-            android:id="@+id/time_tv"
+            android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="시간"/>
-    </LinearLayout>
+            android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-    <LinearLayout
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="현재인원:" />
+
+                <TextView
+                    android:id="@+id/premembers_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0명" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최소인원:" />
+
+                <TextView
+                    android:id="@+id/minmembers_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4명" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시간" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></LinearLayout>
+            android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/arrive_tv"
+        <LinearLayout
             android:layout_weight="1"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="도착지"/>
+            android:gravity="center_vertical|center_horizontal">
 
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></LinearLayout>
-
+            <TextView
+                android:id="@+id/arrive_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="도착지" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
 

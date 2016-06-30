@@ -11,19 +11,18 @@ import java.util.LinkedList;
  * Information of Room
  */
 public class RoomData {
-    private int roomNum;
     private String startLocation;
     private String arriveLocation;
-    private String startTime;
-    private int minMemer;
-    private int presentMember;
-    private String createId;
-    private ArrayList<String> joinList = new ArrayList<String>();
+    private String date;
+    private int minMemer; //최소 인원
+    private int presentMember; //현재 인원
+    private String createId; //생성자 아이디
+    private ArrayList<String> joinList = new ArrayList<String>(); //인원 리스트
 
-    public RoomData(String startLocation, String arriveLocation, String startTime, int minMemer, int presentMember, String createId ) {
+    public RoomData(String startLocation, String arriveLocation, String date, int minMemer, int presentMember, String createId ) {
         this.startLocation = startLocation;
         this.arriveLocation = arriveLocation;
-        this.startTime = startTime;
+        this.date = date;
         this.minMemer = minMemer;
         this.presentMember = presentMember;
         this.createId = createId;
@@ -31,17 +30,16 @@ public class RoomData {
         this.joinList.add( this.createId );
     }
 
-    public RoomData(int roomNum, String startLocation, String arriveLocation, String startTime,
-                    int minMemer, int presentMember){
-        this.roomNum = roomNum;
+    public RoomData(){
+    }
+
+    public RoomData(String startLocation, String arriveLocation, String date, int minMemer, int presentMember){
         this.startLocation = startLocation;
         this.arriveLocation = arriveLocation;
-        this.startTime = startTime;
+        this.date = date;
         this.minMemer = minMemer;
         this.presentMember = presentMember;
     }
-
-    public int getRoomNum(){return  roomNum;}
 
     public String getStartLocation(){
         return startLocation;
@@ -51,8 +49,8 @@ public class RoomData {
         return arriveLocation;
     }
 
-    public String getStartTime(){
-        return startTime;
+    public String getDate(){
+        return date;
     }
 
     public int getMinMemer(){
@@ -64,7 +62,7 @@ public class RoomData {
     }
 
     public void print(){
-        Log.i( "RoomData : " , startLocation + " " + arriveLocation + ", " + startTime + ", "  +minMemer + ", " + joinList.get(0));
+        Log.i( "RoomData : " , startLocation + " " + arriveLocation + ", " + date + ", "  +minMemer + ", " + joinList.get(0));
     }
 
     public void addJoinList(String joinId) {
@@ -95,4 +93,32 @@ public class RoomData {
         presentMember--;
     }
 
+    @Override
+    public String toString() {
+        return "RoomData{" +
+                "startLocation='" + startLocation + '\'' +
+                ", arriveLocation='" + arriveLocation + '\'' +
+                ", date='" + date + '\'' +
+                ", minMemer=" + minMemer +
+                ", presentMember=" + presentMember +
+                '}';
+    }
+
+    public void setStartLocation(String startLocation){
+        this.startLocation = startLocation;
+    }
+
+    public void setArriveLocation(String arriveLocation){
+        this.arriveLocation = arriveLocation;
+    }
+
+    public void setDate(String date){ this.date = date; }
+
+    public void setMinMemer(int minMemer){
+        this.minMemer = minMemer;
+    }
+
+    public void setPresentMember(int presentMember){
+        this.presentMember = presentMember;
+    }
 }

@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <Spinner
-        android:id="@+id/sp_start"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center">
-
-    </Spinner>
-    <Spinner
-        android:id="@+id/sp_end"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center">
-
-    </Spinner>
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center|center_vertical">
+        android:layout_height="match_parent">
+
+        <Spinner
+            android:id="@+id/sp_start"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"/>
+        <Spinner
+            android:id="@+id/sp_end"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"/>
         <TextView
-            android:textSize="20dp"
-            android:layout_marginRight="20dp"
+            android:textSize="15dp"
+            android:layout_marginRight="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="제한 시간"/>
-        <TimePicker
+        <DatePicker
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/timePicker"
+            android:id="@+id/datePicker"
             android:layout_gravity="center_horizontal"
-            android:timePickerMode="spinner" />
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"/>
+
+            <TimePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/timePicker"
+                android:layout_gravity="center_horizontal"
+                android:timePickerMode="spinner" />
+        <EditText
+            android:id="@+id/et_min_Mem"
+            android:hint="최소인원"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:inputType="number" />
+        <Button
+            android:id="@+id/btn_create"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text = "완료"
+            android:textSize = "20dp"
+            android:layout_gravity="center" />
+
     </LinearLayout>
-
-
-    <EditText
-        android:id="@+id/et_min_Mem"
-        android:hint="최소인원"
-        android:textSize="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:singleLine="true"
-        android:inputType="number" />
-
-    <Button
-        android:id="@+id/btn_create"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text = "완료"
-        android:textSize = "20dp"
-        android:layout_gravity="center" />
-
-
-</LinearLayout>
+</ScrollView>
